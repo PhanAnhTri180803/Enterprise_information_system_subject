@@ -1,9 +1,63 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Trang-1" id="rePcDkcuQvUaA6trWNN8">
-    <mxGraphModel>
+    <mxGraphModel dx="952" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-1" parent="1" style="shape=rectangle" value="User" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-2" parent="1" style="shape=rectangle" value="Order" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-3" parent="1" style="shape=rectangle" value="OrderItem" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-4" parent="1" style="shape=rectangle" value="Product" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-5" parent="1" style="shape=rectangle" value="Category" vertex="1">
+          <mxGeometry height="60" width="120" x="650" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-6" parent="1" style="shape=rectangle" value="ProductImage" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-7" parent="1" style="shape=rectangle" value="Review" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-8" parent="1" style="shape=rectangle" value="Coupon" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-9" parent="1" style="shape=rectangle" value="OrderCoupon" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-10" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-1" target="jhumFDxuXGB4XN5f4lXv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-11" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-2" target="jhumFDxuXGB4XN5f4lXv-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-12" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-4" target="jhumFDxuXGB4XN5f4lXv-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-13" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-5" target="jhumFDxuXGB4XN5f4lXv-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-14" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-4" target="jhumFDxuXGB4XN5f4lXv-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-15" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-1" target="jhumFDxuXGB4XN5f4lXv-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-16" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-4" target="jhumFDxuXGB4XN5f4lXv-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-17" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-8" target="jhumFDxuXGB4XN5f4lXv-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jhumFDxuXGB4XN5f4lXv-18" edge="1" parent="1" source="jhumFDxuXGB4XN5f4lXv-2" target="jhumFDxuXGB4XN5f4lXv-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
