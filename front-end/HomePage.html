@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌸 Blossom Flower Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/HomePage.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="HomePage.html">🌸 Blossom<span>Shop</span></a>
+    <div class="nav-links">
+      <a class="nav-link active" href="HomePage.html">Trang chủ</a>
+      <a class="nav-link" href="products.html">Sản phẩm</a>
+      <a class="nav-link" href="orders-track.html">Đơn hàng</a>
+      <a class="nav-link" href="about.html">Giới thiệu</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-outline btn-sm" href="cart.html">🛒 Giỏ hàng <span class="cart-badge" id="cartBadge">0</span></a>
+      <a class="btn btn-primary btn-sm" href="login.html">Đăng nhập</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page active" id="page-home">
+  <div class="hero">
+    <h1>Hoa Tươi — Giao <em>Tận Nơi</em></h1>
+    <p>Blossom Flower Shop — Cửa hàng hoa tươi cao cấp tại TP.HCM. Đặt hàng online, giao đúng giờ, đúng cảm xúc.</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="products.html">Mua ngay →</a>
+      <a class="btn btn-outline" href="about.html">Tìm hiểu thêm</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2 class="section-title">Danh mục sản phẩm</h2>
+      <p class="section-sub">Chọn theo loại hoa hoặc dịp đặc biệt</p>
+      <div class="cat-grid">
+        <div class="cat-card cat-card--pink" onclick="location.href='products.html?cat=hoa-tuoi'">
+          <span>🌹</span>
+          <div class="cat-label">Hoa tươi</div>
+        </div>
+        <div class="cat-card cat-card--orange" onclick="location.href='products.html?cat=bo-hoa'">
+          <span>💐</span>
+          <div class="cat-label">Bó hoa</div>
+        </div>
+        <div class="cat-card cat-card--green" onclick="location.href='products.html?cat=gio-hoa'">
+          <span>🧺</span>
+          <div class="cat-label">Giỏ hoa</div>
+        </div>
+        <div class="cat-card cat-card--purple" onclick="location.href='products.html?cat=hoa-lua'">
+          <span>🌸</span>
+          <div class="cat-label">Hoa lụa</div>
+        </div>
+        <div class="cat-card cat-card--yellow" onclick="location.href='products.html?cat=qua-tang'">
+          <span>🎁</span>
+          <div class="cat-label">Quà tặng</div>
+        </div>
+        <div class="cat-card cat-card--blue" onclick="location.href='products.html?cat=lang-hoa'">
+          <span>🌷</span>
+          <div class="cat-label">Lẵng hoa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">🔥 Sản phẩm nổi bật</h2>
+      <p class="section-sub">Được yêu thích nhất tháng này</p>
+      <div class="product-grid" id="featuredGrid"></div>
+    </div>
+
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">Tại sao chọn Blossom?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-icon">🚚</div>
+          <div class="feature-card-title">Giao hàng nhanh</div>
+          <div class="feature-card-text">Giao trong ngày, đúng giờ bạn chọn.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">🌺</div>
+          <div class="feature-card-title">Hoa tươi 100%</div>
+          <div class="feature-card-text">Nhập hàng mỗi ngày từ vựa hoa tươi chất lượng.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">💳</div>
+          <div class="feature-card-title">Thanh toán đa dạng</div>
+          <div class="feature-card-text">COD, chuyển khoản, MoMo, ZaloPay, VNPay.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-icon">⭐</div>
+          <div class="feature-card-title">Đánh giá thực</div>
+          <div class="feature-card-text">Hàng nghìn khách hàng hài lòng với chất lượng dịch vụ.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🌸 Blossom Flower Shop</div>
+        <p style="font-size:13px;line-height:1.7">Cửa hàng hoa tươi cao cấp tại TP.HCM. Chuyên phục vụ các dịp đặc biệt với hoa tươi chất lượng.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <a class="footer-link" href="products.html?cat=hoa-tuoi">Hoa tươi</a>
+        <a class="footer-link" href="products.html?cat=bo-hoa">Bó hoa</a>
+        <a class="footer-link" href="products.html?cat=gio-hoa">Giỏ hoa</a>
+        <a class="footer-link" href="products.html?cat=hoa-lua">Hoa lụa</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hỗ trợ</h4>
+        <a class="footer-link" href="#">Hướng dẫn đặt hàng</a>
+        <a class="footer-link" href="#">Chính sách đổi trả</a>
+        <a class="footer-link" href="#">Chính sách giao hàng</a>
+        <a class="footer-link" href="#">Liên hệ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <p style="font-size:13px;line-height:1.8">📍 TP. Hồ Chí Minh<br>📞 0901 234 567<br>✉️ hello@blossomshop.vn<br>⏰ 07:00 – 21:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Blossom Flower Shop. All rights reserved.</div>
+  </footer>
+</div>
+<script src="js/HomePage.js"></script>
+</body>
+</html>

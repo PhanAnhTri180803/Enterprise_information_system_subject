@@ -1,0 +1,19 @@
+# Cấu hình ứng dụng (chứa sensitive data)
+js/config.js
+
+# Các file hệ thống
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Môi trường
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - Blossom Flower Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-card">
+        <div class="auth-logo">🌸</div>
+        <div class="auth-title">Đăng nhập</div>
+        <div class="auth-sub">Chào mừng bạn đến Blossom Flower Shop</div>
+
+        <div id="loginSection">
+            <div class="auth-message" id="authMessage"></div>
+
+            <div class="form-group">
+                <label class="form-label" for="loginUsername">Tên tài khoản</label>
+                <input class="form-input" id="loginUsername" placeholder="Nhập tên tài khoản" autocomplete="off" list="savedAccountsList" oninput="applySavedAccount(this.value)">
+                <datalist id="savedAccountsList"></datalist>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="loginPass">Mật khẩu</label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="loginPass" placeholder="••••••••">
+                    <button type="button" id="toggleLoginPasswordBtn" class="password-toggle" onclick="toggleLoginPassword()" aria-label="Hiện mật khẩu"></button>
+                </div>
+            </div>
+
+            <div class="form-group remember-group">
+                <label class="remember-checkbox">
+                    <input type="checkbox" id="rememberAccount">
+                    Lưu tài khoản
+                </label>
+            </div>
+
+            <button class="btn btn-primary btn-block" type="button" onclick="doLogin()">
+                Đăng nhập
+            </button>
+
+            <p class="auth-switch-text">
+                Chưa có tài khoản?
+                <a class="auth-link" onclick="toggleRegisterSection(true)">Đăng ký ngay</a>
+            </p>
+        </div>
+
+        <div class="register-panel" id="registerSection" hidden>
+            <div class="register-title">Đăng ký</div>
+            <div class="register-sub">Tạo tài khoản mới để đăng nhập.</div>
+
+            <div class="form-group">
+                <label class="form-label" for="registerUsername">Tên tài khoản</label>
+                <input class="form-input" id="registerUsername" placeholder="Nhập tên tài khoản">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="registerPassword">Mật khẩu</label>
+                <div class="password-wrapper">
+                    <input type="password" class="form-input" id="registerPassword" placeholder="••••••••">
+                    <button type="button" id="togglePasswordBtn" class="password-toggle" onclick="toggleRegisterPasswords()" aria-label="Hiện mật khẩu"></button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="registerConfirmPassword">Xác nhận mật khẩu</label>
+                <input type="password" class="form-input" id="registerConfirmPassword" placeholder="Nhập lại mật khẩu">
+            </div>
+
+            <div class="register-actions">
+                <button class="btn btn-primary" type="button" onclick="createAccount()">Tạo mới</button>
+                <button class="btn btn-secondary" type="button" onclick="toggleRegisterSection(false)">Quay lại</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+  <script src="js/data.js"></script>

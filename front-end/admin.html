@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <title>Blossom Admin</title>
+</head>
+<body>
+    <!-- ═══ PAGE: ADMIN ═══ -->
+<div class="page" id="page-admin">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <div class="admin-brand">🌸 Blossom Admin</div>
+      <button class="admin-menu-item active" onclick="switchAdmin('dashboard',this)"><span class="icon">📊</span>Dashboard</button>
+      <button class="admin-menu-item" onclick="switchAdmin('products',this)"><span class="icon">🌺</span>Sản phẩm</button>
+      <button class="admin-menu-item" onclick="switchAdmin('orders',this)"><span class="icon">📦</span>Đơn hàng</button>
+      <button class="admin-menu-item" onclick="switchAdmin('users',this)"><span class="icon">👥</span>Khách hàng</button>
+      <button class="admin-menu-item" onclick="switchAdmin('coupons',this)"><span class="icon">🏷️</span>Mã giảm giá</button>
+      <button class="admin-menu-item" onclick="switchAdmin('inventory',this)"><span class="icon">🗃️</span>Tồn kho</button>
+      <button class="admin-menu-item" onclick="switchAdmin('reviews',this)"><span class="icon">⭐</span>Đánh giá</button>
+      <button class="admin-menu-item" onclick="switchAdmin('reports',this)"><span class="icon">📈</span>Báo cáo</button>
+      <div class="admin-sidebar__footer">
+        <button class="admin-menu-item" onclick="showPage('home')"><span class="icon">🏠</span>Về trang chủ</button>
+        <button class="admin-menu-item" onclick="logout()"><span class="icon">🚪</span>Đăng xuất</button>
+      </div>
+    </div>
+    <div class="admin-main">
+ 
+      <!-- Dashboard -->
+      <div class="admin-panel active" id="admin-dashboard">
+        <div class="admin-header">
+          <div>
+            <div class="admin-title">Dashboard</div>
+            <div class="admin-subtitle">Chào Admin! Hôm nay là <span id="todayDate"></span></div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Doanh thu hôm nay</div><div class="stat-val">2.4M</div><div class="stat-change stat-up">↑ +18% so với hôm qua</div></div>
+          <div class="stat-card"><div class="stat-label">Đơn tháng này</div><div class="stat-val">142</div><div class="stat-change stat-up">↑ +23 đơn</div></div>
+          <div class="stat-card"><div class="stat-label">Doanh thu tháng</div><div class="stat-val">68.5M</div><div class="stat-change stat-up">↑ +12%</div></div>
+          <div class="stat-card"><div class="stat-label">Đơn chờ xử lý</div><div class="stat-val stat-val--pink" id="pendingCount">0</div><div class="stat-change stat-muted">Cần xác nhận ngay</div></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card__title">Doanh thu 7 ngày gần nhất</div>
+          <div class="chart-card__unit">Đơn vị: nghìn đồng</div>
+          <div class="chart-bars" id="revenueChart"></div>
+          <div class="chart-labels" id="chartLabels"></div>
+        </div>
+        <div class="section-label">Đơn hàng mới nhất</div>
+        <table class="data-table" id="recentOrdersTable"></table>
+      </div>
+ 
+      <!-- Products -->
+      <div class="admin-panel" id="admin-products">
+        <div class="admin-header"><div class="admin-title">Quản lý sản phẩm</div><button class="btn btn-primary btn-sm" onclick="openProductModal()">+ Thêm sản phẩm</button></div>
+        <div class="admin-filters">
+          <input class="form-input admin-search" placeholder="Tìm sản phẩm..." id="adminSearch" oninput="renderAdminProducts()">
+          <select class="form-input admin-cat-filter" id="adminCatFilter" onchange="renderAdminProducts()">
+            <option value="">Tất cả</option>
+            <option value="hoa-tuoi">Hoa tươi</option><option value="bo-hoa">Bó hoa</option>
+            <option value="gio-hoa">Giỏ hoa</option><option value="hoa-lua">Hoa lụa</option>
+            <option value="qua-tang">Quà tặng</option><option value="lang-hoa">Lẵng hoa</option>
+          </select>
+        </div>
+        <table class="data-table" id="adminProductsTable"></table>
+      </div>
+ 
+      <!-- Orders -->
+      <div class="admin-panel" id="admin-orders">
+        <div class="admin-header">
+          <div class="admin-title">Quản lý đơn hàng</div>
+          <select class="form-input order-status-filter" id="orderStatusFilter" onchange="renderAdminOrders()">
+            <option value="">Tất cả trạng thái</option>
+            <option value="pending">Chờ xác nhận</option><option value="confirmed">Đã xác nhận</option>
+            <option value="preparing">Đang chuẩn bị</option><option value="shipping">Đang giao</option>
+            <option value="delivered">Đã giao</option><option value="cancelled">Đã hủy</option>
+          </select>
+        </div>
+        <table class="data-table" id="adminOrdersTable"></table>
+      </div>
+ 
+      <!-- Users -->
+      <div class="admin-panel" id="admin-users">
+        <div class="admin-header"><div class="admin-title">Quản lý khách hàng</div></div>
+        <table class="data-table" id="adminUsersTable"></table>
+      </div>
+ 
+      <!-- Coupons -->
+      <div class="admin-panel" id="admin-coupons">
+        <div class="admin-header"><div class="admin-title">Mã giảm giá</div><button class="btn btn-primary btn-sm" onclick="openCouponModal()">+ Tạo mã mới</button></div>
+        <table class="data-table" id="adminCouponsTable"></table>
+      </div>
+ 
+      <!-- Inventory -->
+      <div class="admin-panel" id="admin-inventory">
+        <div class="admin-header"><div class="admin-title">Quản lý tồn kho</div></div>
+        <div class="low-stock-alert">⚠️ <span id="lowStockAlert"></span></div>
+        <table class="data-table" id="inventoryTable"></table>
+      </div>
+ 
+      <!-- Reviews -->
+      <div class="admin-panel" id="admin-reviews">
+        <div class="admin-header"><div class="admin-title">Quản lý đánh giá</div></div>
+        <table class="data-table" id="adminReviewsTable"></table>
+      </div>
+ 
+      <!-- Reports -->
+      <div class="admin-panel" id="admin-reports">
+        <div class="admin-header"><div class="admin-title">Báo cáo doanh thu</div></div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Tháng này</div><div class="stat-val">68.5M</div><div class="stat-change stat-up">↑ +12%</div></div>
+          <div class="stat-card"><div class="stat-label">Tổng đơn hàng</div><div class="stat-val">1,247</div><div class="stat-change stat-up">Tích lũy</div></div>
+          <div class="stat-card"><div class="stat-label">Giá trị TB/đơn</div><div class="stat-val">254K</div><div class="stat-change stat-up">↑ +8%</div></div>
+          <div class="stat-card"><div class="stat-label">Khách mới</div><div class="stat-val">89</div><div class="stat-change stat-up">Tháng này</div></div>
+        </div>
+        <div class="report-card">
+          <div class="report-card__title">Top sản phẩm bán chạy</div>
+          <table class="data-table" id="topProductsTable"></table>
+        </div>
+        <div class="report-card">
+          <div class="report-card__title">Phân bố doanh thu theo danh mục</div>
+          <div id="catChart" class="cat-chart"></div>
+        </div>
+      </div>
+
+ 
+    </div>
+  </div>
+  <script src="js/admin.js"></script>
+</div>
+</body>
+</html>
